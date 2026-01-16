@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PatientCare - Pacientes</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>🩺 PatientCare</h1>
+      <p>Registro básico de pacientes (Clínica general)</p>
+    </header>
+
+    <section class="card">
+      <h2>Registrar paciente</h2>
+
+      <form id="pacienteForm" autocomplete="off">
+        <div class="grid">
+          <label>
+            Cédula
+            <input name="cedula" required maxlength="20" />
+          </label>
+
+          <label>
+            Nombre
+            <input name="nombre" required maxlength="120" />
+          </label>
+
+          <label>
+            Apellido
+            <input name="apellido" required maxlength="120" />
+          </label>
+
+          <label>
+            Edad
+            <input name="edad" type="number" min="0" max="120" required />
+          </label>
+
+          <label>
+            Teléfono
+            <input name="telefono" required maxlength="20" />
+          </label>
+
+          <label>
+            Correo
+            <input name="correo" type="email" required maxlength="120" />
+          </label>
+        </div>
+
+        <div class="actions">
+          <button type="submit">Guardar</button>
+          <button id="btnLimpiar" type="button" class="secondary">Limpiar</button>
+          <span id="msg" class="msg"></span>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <div class="row">
+        <h2>Pacientes registrados</h2>
+        <button id="btnRefresh" type="button" class="secondary">Actualizar</button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Cédula</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Edad</th>
+              <th>Teléfono</th>
+              <th>Correo</th>
+              <th>Fecha registro</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyPacientes">
+            <tr><td colspan="8">Cargando...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <small>Frontend local (HTML + JS) consumiendo API REST</small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
